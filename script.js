@@ -141,7 +141,7 @@ function changePin(pinEntered, newPin) {
     }
 }
 
-// Challenge Activity - Make a coffee shop.
+// Activity 3 - Coffee Shop
 
 let coffeeShop = {
     branch: "Liverpool",
@@ -161,10 +161,10 @@ let coffeeShop = {
     foodOrdered(order) {
         foodOrder = []
         total = 0
-        for (let i=0; i<order.length; i++) {
-            if (order[i] in this.foodPrices) {
-                food = order[i]
-                price = this.foodPrices[order[i]]
+        for (let item in order) {
+            if (order[item] in this.foodPrices) {
+                food = order[item]
+                price = this.foodPrices[food]
                 foodOrder.push(`${food}: £${price}`)
                 total += price
             }
@@ -174,10 +174,10 @@ let coffeeShop = {
     drinksOrdered(order) {
         drinksOrder = []
         total = 0
-        for (let i=0; i<order.length; i++) {
-            if (order[i] in this.drinksPrices) {
-                drink = order[i]
-                price = this.drinksPrices[order[i]]
+        for (let item in order) {
+            if (order[item] in this.drinksPrices) {
+                drink = order[item]
+                price = this.drinksPrices[drink]
                 drinksOrder.push(`${drink}: £${price}`)
                 total += price
             }
