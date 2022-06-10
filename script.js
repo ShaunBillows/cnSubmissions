@@ -110,38 +110,7 @@ function divisibleBy(num, factor1, factor2) {
 checkForFactors = divisibleBy(300, 3, 5)
 console.log(checkForFactors)
 
-// Challenge activity - Make a cash machine.
-
-let balance = 1000
-let pin = "1234"
-
-function withdrawCash(pinEntered, amount) {
-    if (pinEntered != pin) {
-        return "Error.  Incorrect pin."
-    } else if (amount > balance) {
-        return "Error.  Insufficient funds."
-    } else {
-        balance -= amount
-        return `Dispensing cash.  ${amount} withdrawn successfully.`
-    }
-}
-function checkBalance(pinEntered) {
-    if (pinEntered != pin) {
-        return "Error.  Incorrect pin."
-    } else {
-        return `Balance: ${balance}`
-    }
-}
-function changePin(pinEntered, newPin) {
-    if (pinEntered != pin) {
-        return "Error.  Incorrect pin."
-    } else {
-        pin = newPin
-        return `Pin number changed successfully.  New pin: ${newPin}`
-    }
-}
-
-// Activity 3 - Make a coffee shop.
+// Challenge activity - Make a coffee shop.
 
 let coffeeShop = {
     branch: "Liverpool",
