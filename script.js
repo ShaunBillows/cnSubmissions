@@ -141,7 +141,7 @@ function changePin(pinEntered, newPin) {
     }
 }
 
-// Activity 3 - Coffee Shop
+// Activity 3 - Make a coffee shop.
 
 let coffeeShop = {
     branch: "Liverpool",
