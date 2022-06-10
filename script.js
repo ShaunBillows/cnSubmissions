@@ -1,7 +1,9 @@
+// JavaScript Fundementals
+
 // Activity 1 - Solve the 'fizzbuzz' challenge. 
 
 function fizzBuzz(num) {
-    // Returns 'fizz' is the number is a multiple of '3', 'buzz' if it's a multiple of '5'
+    // Returns 'fizz' if the number is a multiple of '3', 'buzz' if it's a multiple of '5'
     // or 'fizzbuzz' if it's a multiple of '3' and '5'.  Otherwise returns the number.
     if (num % 3 == 0 && num % 5 == 0) {
         return "fizz buzz"
@@ -21,14 +23,16 @@ console.log(BuzzOrFizz)
 function generateFactors(factor, numbersToGenerate, floor, ceil) {
     // Generates random numbers in the range and checks whether they are divisible by a certain factor.
     let randNum = 0
+    let result = []
     for (let i=0; i<numbersToGenerate; i++) {
         randNum = Math.round(Math.random()*ceil + floor)
         if (randNum % factor == 0) {
-            return `Random number : ${randNum}, Divisible by ${factor} : Yes`
+            result.push(`Random number : ${randNum}, Divisible by ${factor} : Yes`)
         } else {
-            return `Random number : ${randNum}, Divisible by ${factor} : No`
+            result.push(`Random number : ${randNum}, Divisible by ${factor} : No`)
         }
     }
+    return result
 }
 checkForFactors = generateFactors(7,6,1,30)
 console.log(checkForFactors)
@@ -46,7 +50,7 @@ function getRandomNumbers(amount, floor, ceil) {
 randomNumbers = getRandomNumbers(6, 1, 50)
 console.log(randomNumbers)
 
-// Activity 4 - print the numbers 9 - 0 to the screen.
+// Activity 4 - Display the numbers 9-0.
 
 function range(start, end, step) {
     // Returns an array of numbers from "start" upto but not including "end", incremented by "step".
@@ -80,10 +84,10 @@ let pet = {
     drink() {return `${this.name} is drinking.`}
 }
 
-// Activity 6 - Checks whether a password is 8 or more characters.
+// Activity 6 - Check whether a password is 8 or more characters long.
 
 function checkPasswordLength(password, length) {
-    // Checks whether a password is long enough.
+    // Checks a passwords length.
     if (password.length < length) {
         return "Error. Password too short."
     } else {
@@ -93,7 +97,7 @@ function checkPasswordLength(password, length) {
 checkPassword = checkPasswordLength("12345678", 8)
 console.log(checkPassword)
 
-// Activity 7 - Checks whether a number is divisible by 3 or 5.
+// Activity 7 - Check whether a number is divisible by 3 and 5.
 
 function divisibleBy(num, factor1, factor2) {
     // Checks whether a number has two factors.
@@ -105,3 +109,82 @@ function divisibleBy(num, factor1, factor2) {
 }
 checkForFactors = divisibleBy(300, 3, 5)
 console.log(checkForFactors)
+
+// Challenge activity - Make a cash machine.
+
+let balance = 1000
+let pin = "1234"
+
+function withdrawCash(pinEntered, amount) {
+    if (pinEntered != pin) {
+        return "Error.  Incorrect pin."
+    } else if (amount > balance) {
+        return "Error.  Insufficient funds."
+    } else {
+        balance -= amount
+        return `Dispensing cash.  ${amount} withdrawn successfully.`
+    }
+}
+function checkBalance(pinEntered) {
+    if (pinEntered != pin) {
+        return "Error.  Incorrect pin."
+    } else {
+        return `Balance: ${balance}`
+    }
+}
+function changePin(pinEntered, newPin) {
+    if (pinEntered != pin) {
+        return "Error.  Incorrect pin."
+    } else {
+        pin = newPin
+        return `Pin number changed successfully.  New pin: ${newPin}`
+    }
+}
+
+// Challenge Activity - Make a coffee shop.
+
+let coffeeShop = {
+    branch: "Liverpool",
+    drinksPrices: {
+        cappuccino: 4,
+        latte: 4,
+        espresso: 2,
+        americano: 3
+    },
+    foodPrices: {
+        croissant: 3,
+        breakfastSandwich: 5,
+        bagel: 4,
+        donut: 3,
+        cupcake: 2,
+    },
+    foodOrdered(order) {
+        foodOrder = []
+        total = 0
+        for (let i=0; i<order.length; i++) {
+            if (order[i] in this.foodPrices) {
+                food = order[i]
+                price = this.foodPrices[order[i]]
+                foodOrder.push(`${food}: £${price}`)
+                total += price
+            }
+        }
+        return "\nYour food bill:\n" + foodOrder.join("\n") + `\nTotal: £${total}\n`
+    },
+    drinksOrdered(order) {
+        drinksOrder = []
+        total = 0
+        for (let i=0; i<order.length; i++) {
+            if (order[i] in this.drinksPrices) {
+                drink = order[i]
+                price = this.drinksPrices[order[i]]
+                drinksOrder.push(`${drink}: £${price}`)
+                total += price
+            }
+        }
+        return "Your drinks bill:\n" + drinksOrder.join("\n") + `\nTotal: £${total}\n`
+    },
+}
+order = ["croissant", "breakfastSandwich","croissant", "breakfastSandwich", "bagel", "cappuccino", "latte", "espresso", "americano", "latte", "espresso"]
+console.log(coffeeShop.foodOrdered(order))
+console.log(coffeeShop.drinksOrdered(order))
