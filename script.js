@@ -53,6 +53,7 @@ console.log(randomNumbers)
 // Activity 4 - Display the numbers 9-0.
 
 function range(start, stop, step) {
+    // Returns an array of numbers from 'start' upto but not including 'end', incremented by 'step'.
     elements = Math.floor((stop - start) / step)
     sequence = Array.from(Array(elements).keys()).map(x => start + step * x)
     return sequence
