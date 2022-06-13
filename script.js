@@ -52,24 +52,12 @@ console.log(randomNumbers)
 
 // Activity 4 - Display the numbers 9-0.
 
-function range(start, end, step) {
-    // Returns an array of numbers from "start" upto but not including "end", incremented by "step".
-    sequence = []
-    if (end >= start) {
-        i = start
-        while (i < end) {
-            sequence.push(i)
-            i += step
-        }
-    } else {
-        i = start
-        while (i > end) {
-            sequence.push(i)
-            i += step
-        }
-    }
+function range(start, stop, step) {
+    elements = Math.floor((stop - start) / step)
+    sequence = Array.from(Array(elements).keys()).map(x => start + step * x)
     return sequence
 }
+
 sequence = range(9,-1,-1)
 console.log(sequence)
 
