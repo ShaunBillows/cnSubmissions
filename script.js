@@ -15,8 +15,8 @@ function fizzBuzz(num) {
         return num
     }
 }
-BuzzOrFizz = fizzBuzz(9000)
-console.log(BuzzOrFizz)
+buzzOrFizz = fizzBuzz(9000)
+console.log(buzzOrFizz)
 
 // Activity 2 - Generate a random number between 1 and 30 six times.  Check if each number is divisible by 7.
 
